@@ -38,6 +38,8 @@ namespace EmployeeManagement.Api.Controllers
                 return NotFound();
             }
 
+            await _context.Entry(employee).Collection(x => x.Tasks).LoadAsync();
+
             return employee;
         }
 
